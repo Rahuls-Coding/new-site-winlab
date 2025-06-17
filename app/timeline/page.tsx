@@ -110,7 +110,7 @@ const timelineData = [
 
 export default function TimelinePage() {
   return (
-    <div className="min-h-screen bg-black text-white geometric-bg">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white geometric-bg">
       <div className="geometric-element geometric-element-1"></div>
       <div className="geometric-element geometric-element-2"></div>
 
@@ -120,7 +120,7 @@ export default function TimelinePage() {
       <section className="py-20 px-4 relative">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-5xl font-light mb-6">Research Timeline</h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             10-week edge computing benchmarking research project milestones
           </p>
         </div>
@@ -137,10 +137,10 @@ export default function TimelinePage() {
                 return (
                   <div key={index} className="relative flex items-start">
                     {/* Timeline line - only show if not the last item */}
-                    {!isLast && <div className="absolute left-6 top-12 w-px h-12 bg-gray-800"></div>}
+                    {!isLast && <div className="absolute left-6 top-12 w-px h-12 bg-gray-300 dark:bg-gray-800"></div>}
 
                     {/* Timeline dot */}
-                    <div className="relative z-10 flex items-center justify-center w-12 h-12 bg-black rounded-full">
+                    <div className="relative z-10 flex items-center justify-center w-12 h-12 bg-white dark:bg-black rounded-full">
                       <div className={`p-1.5 rounded-lg ${item.iconBg}`}>
                         <IconComponent className={`w-4 h-4 ${item.iconColor}`} />
                       </div>
@@ -148,12 +148,15 @@ export default function TimelinePage() {
 
                     {/* Content */}
                     <div className="ml-8 flex-1">
-                      <Card className="bg-transparent border-none hover:bg-gray-900/50 transition-all duration-300 group">
+                      <Card className="bg-transparent border-none hover:bg-gray-100 dark:hover:bg-gray-900/50 transition-all duration-300 group">
                         <CardContent className="p-6">
                           <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-xl font-medium text-white">{item.title}</h3>
+                            <h3 className="text-xl font-medium text-black dark:text-white">{item.title}</h3>
                             <div className="flex items-center gap-3">
-                              <Badge variant="outline" className="text-gray-400 border-gray-700 bg-transparent">
+                              <Badge
+                                variant="outline"
+                                className="text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 bg-transparent"
+                              >
                                 {item.week}
                               </Badge>
                               <Badge
@@ -174,7 +177,7 @@ export default function TimelinePage() {
                               </Badge>
                             </div>
                           </div>
-                          <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
                         </CardContent>
                       </Card>
                     </div>
