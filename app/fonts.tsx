@@ -1,4 +1,4 @@
-import { GeistSans } from "next/font/geist/sans"
+import { GeistSans } from "geist/font/sans"
 
 export const geist = GeistSans({
   subsets: ["latin"],
