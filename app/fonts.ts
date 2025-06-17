@@ -1,9 +1,8 @@
 import { GeistSans } from "geist/font/sans"
 
 /**
- * Shared Geist font instance.
- * `layout.tsx` imports { geist } from "./fonts"
- * so the filename must be exactly `fonts.ts` in /app.
+ * Shared Geist Sans font
+ * (`app/layout.tsx` does:  import { geist } from "./fonts" )
  */
 export const geist = GeistSans({
   subsets: ["latin"],
