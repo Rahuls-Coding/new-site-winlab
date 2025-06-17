@@ -32,11 +32,11 @@
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+    --card: 0 0% 0%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+    --popover: 0 0% 0%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
@@ -64,22 +64,30 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors;
   }
 }
 
 /* Clean geometric background elements */
 .geometric-bg {
   position: relative;
-  background: #000000;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .geometric-element {
   position: absolute;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
   border-radius: 50%;
   pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.dark .geometric-element {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
+}
+
+:root .geometric-element {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 50%, transparent 100%);
 }
 
 .geometric-element-1 {
