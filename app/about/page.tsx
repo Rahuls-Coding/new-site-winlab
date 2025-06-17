@@ -49,7 +49,7 @@ const teamMembers = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white geometric-bg">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white geometric-bg">
       <div className="geometric-element geometric-element-1"></div>
       <div className="geometric-element geometric-element-2"></div>
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
       <section className="py-20 px-4 relative">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-5xl font-light mb-6">Our Team</h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Researchers and engineers advancing edge computing benchmarks
           </p>
         </div>
@@ -70,13 +70,16 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-transparent border-none hover:bg-gray-900/50 transition-all duration-300">
+              <Card
+                key={index}
+                className="bg-transparent border-none hover:bg-gray-100 dark:hover:bg-gray-900/50 transition-all duration-300 group"
+              >
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center text-center">
                     {/* Avatar */}
-                    <Avatar className="h-24 w-24 mb-6 border-2 border-gray-800">
+                    <Avatar className="h-24 w-24 mb-6 border-2 border-gray-300 dark:border-gray-800">
                       <AvatarImage src={member.image || "/placeholder.svg"} alt={member.name} />
-                      <AvatarFallback className="text-lg bg-gray-900 text-white">
+                      <AvatarFallback className="text-lg bg-gray-200 dark:bg-gray-900 text-black dark:text-white">
                         {member.name
                           .split(" ")
                           .map((n) => n[0])
@@ -86,12 +89,14 @@ export default function AboutPage() {
 
                     {/* Name and Role */}
                     <div className="mb-4">
-                      <h3 className="text-xl font-medium text-white mb-2">{member.name}</h3>
-                      <Badge className="bg-gray-900 text-gray-300 border-gray-700">{member.role}</Badge>
+                      <h3 className="text-xl font-medium text-black dark:text-white mb-2">{member.name}</h3>
+                      
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-400 leading-relaxed mb-6 text-sm">{member.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-sm">
+                      {member.description}
+                    </p>
 
                     {/* Expertise */}
                     <div className="mb-6">
@@ -101,7 +106,7 @@ export default function AboutPage() {
                           <Badge
                             key={skillIndex}
                             variant="outline"
-                            className="text-xs text-gray-400 border-gray-700 bg-transparent"
+                            className="text-xs text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 bg-transparent"
                           >
                             {skill}
                           </Badge>
@@ -115,7 +120,7 @@ export default function AboutPage() {
                         href={member.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-900"
+                        className="text-gray-500 hover:text-black dark:hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900"
                       >
                         <svg
                           className="w-4 h-4"
@@ -134,7 +139,7 @@ export default function AboutPage() {
                         href={member.links.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-900"
+                        className="text-gray-500 hover:text-black dark:hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900"
                       >
                         <svg
                           className="w-4 h-4"
@@ -153,7 +158,7 @@ export default function AboutPage() {
                       </Link>
                       <Link
                         href={`mailto:${member.links.email}`}
-                        className="text-gray-500 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-900"
+                        className="text-gray-500 hover:text-black dark:hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900"
                       >
                         <svg
                           className="w-4 h-4"
